@@ -179,8 +179,8 @@ else
 fi
 
 ###### BEGIN FZF ###################
-source /usr/share/doc/fzf/examples/key-bindings.zsh
-source /usr/share/doc/fzf/examples/completion.zsh
+source /usr/local/share/fzf/examples/key-bindings.zsh
+source /usr/local/share/fzf/examples/completion.zsh
 
 # Setting fd as the default source for fzf
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git --exclude .cache --exclude cache --exclude .vim --exclude Slack --exclude Workstation --exclude archived --exclude .oh-my-zsh --exclude .tmux --exclude Downloads --exclude flatpak'
