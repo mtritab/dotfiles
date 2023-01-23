@@ -18,7 +18,8 @@ vim.opt.foldlevel = 99
 -- general
 lvim.log.level = "warn"
 lvim.format_on_save.enabled = false
-lvim.colorscheme = "lunar"
+--lvim.colorscheme = "lunar"
+lvim.colorscheme = "carbonfox"
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
 
@@ -110,10 +111,10 @@ lvim.builtin.bufferline.options.max_prefix_length = 25
 lvim.builtin.bufferline.options.hover.delay = true
 lvim.builtin.bufferline.options.diagnostics_indicator = false
 lvim.builtin.bufferline.highlights.background.fg = "#dc8ed9"
-lvim.builtin.bufferline.highlights.buffer_selected.fg = "#192330"
-lvim.builtin.bufferline.highlights.buffer_selected.bg = "#719cd6"
-lvim.builtin.bufferline.highlights.duplicate_selected.fg = "#192330"
-lvim.builtin.bufferline.highlights.duplicate_selected.bg = "#719cd6"
+--lvim.builtin.bufferline.highlights.buffer_selected.fg = "#192330"
+--lvim.builtin.bufferline.highlights.buffer_selected.bg = "#719cd6"
+--lvim.builtin.bufferline.highlights.duplicate_selected.fg = "#192330"
+--lvim.builtin.bufferline.highlights.duplicate_selected.bg = "#719cd6"
 
 lvim.builtin.project.manual_mode = true
 
@@ -202,6 +203,13 @@ lvim.builtin.project.manual_mode = true
      },
      {
        "EdenEast/nightfox.nvim",
+          require('nightfox').setup {
+            options = {
+              styles = {
+                strings = "NONE",
+              },
+            },
+          },
      },
      {
        "tpope/vim-fugitive",
