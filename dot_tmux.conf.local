@@ -321,8 +321,9 @@ bind-key -n S-Right swap-window -t +1\; select-window -t +1
 
 #TPM
 # List of plugins
-set -g @tpm_plugins '          \
+set -g @tpm_plugins '           \
    tmux-plugins/tpm             \
+   sainnhe/tmux-fzf             \
    tmux-plugins/tmux-resurrect  \
    tmux-plugins/tmux-continuum  \
  '
