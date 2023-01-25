@@ -265,6 +265,10 @@ lvim.builtin.project.manual_mode = true
          })
        end
      },
+     {
+       "iamcco/markdown-preview.nvim",
+       run = function() vim.fn["mkdp#util#install"]() end
+     },
  }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
