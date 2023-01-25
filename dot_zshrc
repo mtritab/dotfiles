@@ -131,6 +131,7 @@ bindkey -M viins '\e/' vi-search-fix
 alias vi="lvim"
 #alias k="kubectl"
 alias k="kubecolor"
+alias kubectl="kubecolor"
 alias kn="kubectl neat"
 alias bcat="bat --style=plain,header"
 #alias diff="delta"
@@ -165,11 +166,13 @@ export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 source <(kubectl completion zsh)
+compdef kubecolor=kubectl
 source <(flux completion zsh)
 #source ~/.config/istio/_istioctl
 #tctl completion zsh > "${fpath[1]}/_tctl"
 source <(stern --completion=zsh)
 source <(kubectl istiolog completion zsh)
+source <(helm completion zsh)
 
 #source $HOME/.config/zsh-abbrev-alias/abbrev-alias.plugin.zsh
 #abbrev-alias -c ka='kubectl apply -f'
@@ -289,3 +292,8 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f $HOME/.local/lib/google-cloud-sdk/path.zsh.inc ]; then . $HOME/.local/lib/google-cloud-sdk/path.zsh.inc; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f $HOME/.local/lib/google-cloud-sdk/completion.zsh.inc ]; then . $HOME/.local/lib/google-cloud-sdk/completion.zsh.inc; fi
