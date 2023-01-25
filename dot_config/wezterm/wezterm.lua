@@ -13,7 +13,7 @@ return {
   },
   font = wezterm.font("Hack Nerd Font Mono", {weight="Regular", stretch="Normal", style="Normal"}),
   color_scheme = 'carbonfox',
-  font_size = 22,
+  font_size = 24,
   --font_size = 18,
   enable_scroll_bar = false,
   --window_decorations = 'NONE',
