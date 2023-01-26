@@ -135,7 +135,7 @@ alias kubectl="kubecolor"
 alias kn="kubectl neat"
 alias bcat="bat --style=plain,header"
 #alias diff="delta"
-alias ll="exa -l -snew"
+alias ll="exa -l --icons -snew"
 
 eval "$(direnv hook zsh)"
 fpath+=${ZDOTDIR:-~}/.zsh_functions
@@ -159,6 +159,7 @@ export PATH="$GETMESH_HOME/bin:$PATH"
 export PATH="$PATH:$HOME/.tctl/bin"
 
 export PATH="$HOME/.gobrew/current/bin:$HOME/.gobrew/bin:$PATH"
+export GOROOT="$HOME/.gobrew/current/go"
 
 eval "$( command rapture shell-init )"
 
