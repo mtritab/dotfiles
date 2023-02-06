@@ -110,11 +110,12 @@ lvim.builtin.bufferline.options.max_name_length = 28
 lvim.builtin.bufferline.options.max_prefix_length = 25
 lvim.builtin.bufferline.options.hover.delay = true
 lvim.builtin.bufferline.options.diagnostics_indicator = false
-lvim.builtin.bufferline.highlights.background.fg = "#dc8ed9"
---lvim.builtin.bufferline.highlights.buffer_selected.fg = "#192330"
---lvim.builtin.bufferline.highlights.buffer_selected.bg = "#719cd6"
---lvim.builtin.bufferline.highlights.duplicate_selected.fg = "#192330"
---lvim.builtin.bufferline.highlights.duplicate_selected.bg = "#719cd6"
+
+lvim.builtin.bufferline.highlights.buffer_visible.fg = "#f2f4f8"
+lvim.builtin.bufferline.highlights.background.fg = "#ff91c1"
+
+lvim.builtin.bufferline.highlights.buffer_selected.fg = "#f2f4f8"
+lvim.builtin.bufferline.highlights.buffer_selected.bg = "#486599"
 
 lvim.builtin.project.manual_mode = true
 
