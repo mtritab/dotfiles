@@ -135,7 +135,8 @@ alias vi="lvim"
 alias k="kubecolor"
 alias kubectl="kubecolor"
 alias kn="kubectl neat"
-alias bcat="bat --style=plain,header"
+alias bcat="bat --color --style=numbers,header"
+#alias bcat="bat --show-all"
 #alias diff="delta"
 alias ll="exa -l --icons -snew"
 
@@ -255,6 +256,13 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'
 zstyle ':fzf-tab:complete:ls:*' fzf-preview 'exa -1 --color=always $realpath'
 # switch group using `,` and `.`
 zstyle ':fzf-tab:*' switch-group ',' '.'
+# systemctl
+zstyle ':fzf-tab:complete:systemctl-*:*' fzf-preview 'SYSTEMD_COLORS=1 systemctl status $word'
+# show file, dir, etc contents
+zstyle ':fzf-tab:complete:*:*' fzf-preview 'less ${(Q)realpath}'
+export LESSOPEN='|~/.lessfilter %s'
+zstyle ':fzf-tab:complete:*:options' fzf-preview 
+zstyle ':fzf-tab:complete:*:argument-1' fzf-preview
 #########
 pods() {
   FZF_DEFAULT_COMMAND="kubectl get pods" \
@@ -264,7 +272,8 @@ pods() {
         --bind 'ctrl-p:change-preview-window(80%,border-bottom|hidden|)' \
         --bind 'ctrl-e:execute:kubectl edit pod {1} > /dev/tty' \
         --bind 'enter:execute:kubectl exec -it {1} -- bash > /dev/tty' \
-        --bind 'ctrl-o:execute:${EDITOR:-vim} <(kubectl logs --all-containers {1} ) > /dev/tty' \
+        #--bind 'ctrl-o:execute:${EDITOR:-vim} <(kubectl logs --all-containers {1} ) > /dev/tty' \
+        --bind 'ctrl-o:execute:${EDITOR:-bat} <(kubectl logs --all-containers {1} ) > /dev/tty' \
         --bind 'ctrl-r:reload:kubectl get pods' \
         --preview-window up:follow \
         --preview 'kubectl logs --follow --all-containers --tail=10000 {1} ' "$@"
@@ -277,7 +286,7 @@ secrets() {
         --prompt "$(kubectl config current-context | sed 's/-context$//')> " \
         --header $'/ CTRL-o (view secrets) ╱ CTRL-r (reload) ╱\n\n' \
         --bind 'ctrl-p:change-preview-window(80%,border-bottom|hidden|)' \
-        --bind 'ctrl-o:execute:${EDITOR:-vim} <(kubectl get secret {1} -o go-template=$TEMPLATE ) > /dev/tty' \
+        --bind 'ctrl-o:execute:${EDITOR:-vi} <(kubectl get secret {1} -o go-template=$TEMPLATE ) > /dev/tty' \
         --bind 'ctrl-r:reload:kubectl get secrets' \
         --preview-window up:follow \
         --preview 'kubectl get secret {1} -o go-template=$TEMPLATE ' "$@"
@@ -305,6 +314,9 @@ if [ -f $HOME/.local/lib/google-cloud-sdk/path.zsh.inc ]; then . $HOME/.local/li
 if [ -f $HOME/.local/lib/google-cloud-sdk/completion.zsh.inc ]; then . $HOME/.local/lib/google-cloud-sdk/completion.zsh.inc; fi
 
 eval "$(zoxide init zsh)"
-alias cd=z
-alias cdi=zi
+alias cdi="zi"
+alias cd="z"
 
+complete -C '/usr/local/bin/aws_completer' aws
+
+alias man="tldr"
