@@ -1,10 +1,11 @@
 #! /usr/bin/env sh
-# this is a example of .lessfilter, you can change it
 mime=$(file -bL --mime-type "$1")
+# this is a example of .lessfilter, you can change it
 category=${mime%%/*}
 kind=${mime##*/}
 if [ -d "$1" ]; then
-	exa --git -hl --color=always --icons "$1"
+	#exa --git -hl --color=always --icons "$1"
+	exa -hl --color=always --icons "$1"
 elif [ "$category" = image ]; then
 	chafa "$1"
 	exiftool "$1"
@@ -14,6 +15,6 @@ elif [ "$kind" = vnd.openxmlformats-officedocument.spreadsheetml.sheet ] || \
 elif [ "$category" = text ]; then
 	bat --color=always "$1"
 else
-	lesspipe.sh "$1" | bat --color=always
+	bat --color=always "$1"
 fi
 # lesspipe.sh don't use exa, bat and chafa, it use ls and exiftool. so we create a lessfilter.
