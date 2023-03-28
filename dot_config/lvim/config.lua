@@ -112,10 +112,17 @@ lvim.builtin.bufferline.options.hover.delay = true
 lvim.builtin.bufferline.options.diagnostics_indicator = false
 
 lvim.builtin.bufferline.highlights.buffer_visible.fg = "#f2f4f8"
+lvim.builtin.bufferline.highlights.buffer_visible.bg = "#486599"
 lvim.builtin.bufferline.highlights.background.fg = "#ff91c1"
 
 lvim.builtin.bufferline.highlights.buffer_selected.fg = "#f2f4f8"
 lvim.builtin.bufferline.highlights.buffer_selected.bg = "#486599"
+
+lvim.builtin.bufferline.highlights.duplicate_selected.fg = "#f2f4f8"
+lvim.builtin.bufferline.highlights.duplicate_selected.bg = "#486599"
+lvim.builtin.bufferline.highlights.duplicate_selected.bold = false
+
+lvim.builtin.bufferline.options.sort_by = "insert_at_end"
 
 lvim.builtin.project.manual_mode = true
 
