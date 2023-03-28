@@ -60,6 +60,13 @@ M.config = function()
       duplicate_selected = {
         bold = true,
       },
+      buffer_visible = {
+        fg = "#C7CC7F",
+      },
+      info_selected = {
+        fg = "#f2f4f8",
+        bg = "#486599",
+      },
     },
     options = {
       mode = "buffers", -- set to "tabs" to only show tabpages instead
@@ -134,6 +141,7 @@ M.config = function()
       show_buffer_close_icons = lvim.use_icons,
       show_close_icon = false,
       show_tab_indicators = true,
+      --show_duplicate_prefix = true,
       persist_buffer_sort = true, -- whether or not custom sorted buffers should persist
       -- can also be a table containing 2 custom separators
       -- [focused and unfocused]. eg: { '|', '|' }
