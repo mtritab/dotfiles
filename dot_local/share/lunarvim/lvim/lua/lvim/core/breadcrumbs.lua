@@ -132,10 +132,10 @@ M.get_filename = function()
     -- end
 
 -- original lines
---   local navic_text = vim.api.nvim_get_hl_by_name("Normal", true)
---   vim.api.nvim_set_hl(0, "Winbar", { fg = navic_text.foreground })
+   local navic_text = vim.api.nvim_get_hl_by_name("BufferLineBufferSelected", true)
+   vim.api.nvim_set_hl(0, "Winbar", { fg = navic_text.foreground })
 
-   vim.api.nvim_set_hl(0, "Winbar", { fg = "#f2f4f8", bg = "#486599" })
+   --vim.api.nvim_set_hl(0, "Winbar", { fg = "#f2f4f8", bg = "#486599" })
 
    return " " .. "%#" .. hl_group .. "#" .. file_icon .. "%*" .. " " .. "%#Winbar#" .. filename .. "%*"
   end
