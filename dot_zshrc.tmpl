@@ -323,4 +323,7 @@ bindkey -M vicmd v edit-command-line
 
 export WEZTERM_LOG=trace
 
+{{- if eq .chezmoi.os "darwin" }}
+# this will only be included on macos
 export PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
+{{- end }
